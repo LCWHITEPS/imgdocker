@@ -1,20 +1,11 @@
-# Usar una imagen base de Node.js
-FROM node:14
+# Usar la imagen oficial de PHP con Apache
+FROM php:8.2-apache
 
-# Crear el directorio de trabajo
-WORKDIR /app
+# Instalar extensiones necesarias para MySQL
+RUN docker-php-ext-install mysqli
 
-# Copiar los archivos de dependencia
-COPY package*.json ./
+# Copiar la aplicación al directorio raíz de Apache
+COPY ./web/ /var/www/html/
 
-# Instalar las dependencias
-RUN npm install
-
-# Copiar el resto del código de la aplicación
-COPY . .
-
-# Exponer el puerto en el que correrá la app
-EXPOSE 3000
-
-# Comando para correr la app
-CMD ["node", "server.js"]
+# Exponer el puerto 80
+EXPOSE 40
