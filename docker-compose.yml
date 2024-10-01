@@ -4,24 +4,24 @@ services:
   web:
     build: .
     ports:
-      - "8080:40" # El puerto 8080 en el host mapeado al puerto 40 en el contenedor
+      - "8080:80"
     volumes:
-      - ./web:/var/www/html # Monta la carpeta web en el contenedor
+      - ./web:/var/www/html
     depends_on:
-      - db # Indica que el servicio web depende del servicio de base de datos
+      - db
     networks:
       - app-network
 
   db:
-    image: mysql:latest
+    image: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root # Contraseña del usuario root
-      MYSQL_DATABASE: nombre_base_datos # Nombre de la base de datos
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: nombre_base_datos
     ports:
-      - "3306:3306" # Puerto de MySQL
+      - "3306:3306"
     networks:
       - app-network
 
 networks:
   app-network:
-    driver: bridge # Usa el driver de red bridge
+    driver: bridge
