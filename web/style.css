@@ -1,0 +1,48 @@
+:root{
+    --back-black:  #0b0c10;
+    --dark-magenta:   #600f59;
+    --galactic-magenta:#780c64;
+    
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header, footer {
+    background-color:var(--back-black);
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    height: 5rem;
+}
+
+main {
+    display: flex;
+    height: calc(100vh - 10rem); /* Altura restante */
+}
+
+aside {
+    width: 25%;
+    background-color: var(--dark-magenta) ;
+    padding: 20px;
+    color: white;
+}
+
+section {
+    width: 75%;
+    padding: 20px;
+    background-color: var(--back-black);
+    color: white;
+    align-items: center;
+    align-content: center;
+}
+
+footer {
+}
